@@ -293,7 +293,7 @@ void Mkdir(char create_dir_name[])      //这里建立的时候不能忘记父�
             strcpy(temp_dir[length].item_name, create_dir_name);
             temp_dir[length].inode_address = ialloc();
 //            printf("current temp_dir[%d] get inode_address:%d\n", length, temp_dir[length].inode_address);
-            printf("get inode_address:%d ", temp_dir[length].inode_address);
+//            printf("get inode_address:%d ", temp_dir[length].inode_address);
             fseek(file, temp_dir[length].inode_address, SEEK_SET);
             struct Inode temp2;         //temp2用于保存新建立目录对应的i结点地址
             fread(&temp2, sizeof(struct Inode), 1, file);
@@ -306,7 +306,7 @@ void Mkdir(char create_dir_name[])      //这里建立的时候不能忘记父�
             temp2.group=cur_user.group;
             temp2.update_time=time(NULL);
 //            printf("current inode address:%d get block_address:%d\n",temp_dir[length].inode_address, temp2.block_address[0]);
-            printf(" get block_address:%d\n", temp2.block_address[0]);
+//            printf(" get block_address:%d\n", temp2.block_address[0]);
             //注:这里i结点初始化只初始化了物理块的地址,其他的全没写!
             struct DirItem new_dir_matrix[MAX_DIR_NUM];
             for (int i = 0; i < MAX_DIR_NUM; i++) {

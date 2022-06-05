@@ -9,9 +9,6 @@
 
 <img src="images\img3.png" alt="img3" width=500 />
 
-如果我们的项目有帮助，请点一颗小星星吧
-
-
 如果我们的项目有帮助，请点一颗小星星吧:heart:
 
 If you find our project helpful, star our project:star:

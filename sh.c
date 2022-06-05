@@ -268,6 +268,10 @@ bool Cd(char skip_address[])    //目前是单级跳转,这是查询不是建立
 
 void Mkdir(char create_dir_name[])      //这里建立的时候不能忘记父亲目录名,默认已经在当前目录下
 {
+    if(cur_cmd.length != 2){
+        fprintf(stderr, "mkdir: usage: mkdir dir_name\n");
+        return;
+    }
     struct Inode temp1;        //temp1用于当前目录的i结点地址
     fseek(file,cur_dir.inode_address,SEEK_SET);
     fread(&temp1,sizeof (struct Inode),1,file);
@@ -318,7 +322,7 @@ void Mkdir(char create_dir_name[])      //这里建立的时候不能忘记父�
 //            printf("\ncurrent directory %s address:%d\n",create_dir_name,new_dir_matrix[0].inode_address);
             strcpy(new_dir_matrix[1].item_name, "..");
             new_dir_matrix[1].inode_address = cur_dir.inode_address;
-            printf("current father directory %s address:%d\n",cur_dir.item_name,cur_dir.inode_address);
+//            printf("current father directory %s address:%d\n",cur_dir.item_name,cur_dir.inode_address);
             fseek(file, temp_dir[length].inode_address, SEEK_SET);
             fwrite(&temp2, sizeof(struct Inode), 1, file);
             fseek(file, temp2.block_address[0], SEEK_SET);
@@ -328,7 +332,7 @@ void Mkdir(char create_dir_name[])      //这里建立的时候不能忘记父�
         }
     }
     else{
-        printf("mkdir: this directory is exist!\n");
+        printf("mkdir: this directory is already existed!\n");
     }
 }
 
@@ -449,7 +453,7 @@ void useradd(){
 
     // 检查是组号是否合法
     char group = cur_cmd.argv[3][0];
-    printf("group: %c\n", group);
+//    printf("group: %c\n", group);
     if((isalpha(group))
     && (toupper(group) == GROUP_A || toupper(group) == GROUP_B || toupper(group) == GROUP_C)){
      ;                                           // 组号合法
@@ -1043,7 +1047,7 @@ void super(){
  */
 void help(){
     printf("ls                                      List directories and files.\n");
-    printf("    -r                                  List with details.\n");
+    printf("    -l                                  List with details.\n");
     printf("exit                                    Exit file system.\n");
     printf("cd dir_name                             Go to directory.\n");
     printf("mkdir dir_name                          Build a directory.\n");

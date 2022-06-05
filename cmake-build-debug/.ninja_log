@@ -1,0 +1,5 @@
+# ninja log v5
+8	115	6761378578824707	CMakeFiles/os_filesystem.dir/main.c.obj	37fd89f04f177f72
+0	143	6761378579193765	CMakeFiles/os_filesystem.dir/file.c.obj	82f43bad888b9692
+15	176	6761378579510278	CMakeFiles/os_filesystem.dir/sh.c.obj	a8810442722163cf
+176	347	6761378581080557	os_filesystem.exe	df105af9ea4e7bbb

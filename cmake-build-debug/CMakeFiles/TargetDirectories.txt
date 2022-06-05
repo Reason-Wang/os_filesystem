@@ -1,0 +1,3 @@
+C:/Users/WRX/Projects/OS/project/os_filesystem/cmake-build-debug/CMakeFiles/os_filesystem.dir
+C:/Users/WRX/Projects/OS/project/os_filesystem/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/WRX/Projects/OS/project/os_filesystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
